@@ -20,12 +20,26 @@ public class ParseIntegers {
         int sum = 0;
         String justWords = "";
         while (words.hasNext()) {
+            //возвращаем элементы массива: и цифры, и текст
             String next = words.next();
-            int number = Integer.parseInt(next);
-            // todo: complete it
+//Integer.parseInt(next) возвращает исключение, если натыкается на нечисло, значит, нужно обработать ошибку
+            try {
+                int number = Integer.parseInt(next);
+                sum += number;
+            } catch (NumberFormatException e) {
+
+               // next = next.replace(",", "");
+                //next = next.replace(".", "");
+                justWords =justWords+next+" ";
+
+            }
+
         }
+
         System.out.println("Sum is " + sum);
-        System.out.println("Just words:" + justWords);
+        System.out.println("Just words:" + " "+justWords);
+
+
     }
 }
 
